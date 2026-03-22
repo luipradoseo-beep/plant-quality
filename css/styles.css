@@ -1848,6 +1848,24 @@ section {
     margin-top: 2px;
 }
 
+/* Force phone number text to be white in footer */
+.footer .contact-item span {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Style for footer phone link to keep it white */
+.footer .footer-phone-link {
+    color: white !important;
+    text-decoration: none !important;
+    transition: var(--transition);
+}
+
+.footer .footer-phone-link:hover {
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+}
+
 .footer-links h3,
 .footer-social h3 {
     margin-bottom: 1.5rem;
@@ -1942,6 +1960,88 @@ section {
     color: white;
 }
 
+
+/* Video Thumbnail Overlay Styles */
+.vsl-player {
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    overflow: hidden;
+    border-radius: 12px;
+    /* Match the thumbnail image border radius */
+}
+
+.vsl-player:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.vsl-player:hover .play-overlay {
+    opacity: 1;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid rgba(156, 191, 40, 0.8);
+}
+
+.vsl-player:hover .play-button {
+    transform: scale(1.1) rotate(3deg);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.play-button i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-left: 4px;
+}
+
+/* Subtle animation for the play button */
+@keyframes pulse-play {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.play-button {
+    animation: pulse-play 3s infinite;
+}
+
+.vsl-player:hover .play-button {
+    animation: none;
+}
+
 /* WhatsApp Floating Button (Mobile Only) */
 .whatsapp-float {
     position: fixed;
@@ -1996,6 +2096,35 @@ section {
 
     .whatsapp-float:hover {
         transform: translateY(-2px) scale(1.05);
+    }
+
+    /* Mobile video thumbnail behavior */
+    .vsl-player {
+        border-radius: 12px;
+    }
+
+    .vsl-player:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .play-overlay {
+        opacity: 0;
+    }
+
+    .vsl-player:hover .play-overlay {
+        opacity: 1;
+    }
+
+    .play-button {
+        animation: pulse-play 3s infinite;
+    }
+
+    .vsl-player:hover .play-button {
+        animation: none;
+        transform: scale(1.1) rotate(3deg);
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
     }
 }
 
