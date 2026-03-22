@@ -12,6 +12,39 @@
     gtag('config', 'G-V8BTG64JEH');
   </script>
 
+  <!-- Custom Event Tracking Script -->
+  <script>
+    // Função para rastrear cliques em links do WhatsApp
+    function trackWhatsAppClick() {
+      gtag('event', 'botao_whatsapp', {
+        'event_category': 'engagement',
+        'event_label': 'whatsapp_link_click',
+        'value': 1
+      });
+    }
+
+    // Adiciona o evento de clique a todos os links que contém o número 5519996183972
+    document.addEventListener('DOMContentLoaded', function () {
+      // Seleciona todos os links que contém o número do WhatsApp
+      const whatsappLinks = document.querySelectorAll('a[href*="5519996183972"]');
+
+      whatsappLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          // Rastreia o evento antes de seguir o link
+          trackWhatsAppClick();
+
+          // Pequeno delay para garantir que o evento seja enviado
+          setTimeout(function () {
+            window.open(link.href, link.target || '_blank');
+          }, 100);
+
+          // Impede o comportamento padrão para controlar o redirecionamento
+          e.preventDefault();
+        });
+      });
+    });
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
