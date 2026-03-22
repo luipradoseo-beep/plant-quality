@@ -283,6 +283,8 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -952,6 +954,149 @@ section {
     margin-bottom: 2rem;
 }
 
+/* Jorge Card */
+.jorge-card {
+    grid-column: span 4;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    margin-top: 4rem;
+}
+
+.jorge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.jorge-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.jorge-image {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.jorge-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.jorge-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.jorge-info p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.jorge-quote {
+    background: rgba(156, 191, 40, 0.1);
+    padding: 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.jorge-quote blockquote {
+    font-style: italic;
+    color: var(--text-color);
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Mobile responsive for Jorge card */
+@media (max-width: 768px) {
+    .jorge-image img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Desktop responsive for Jorge card */
+@media (min-width: 769px) {
+    .jorge-card {
+        padding: 2rem;
+    }
+
+    .jorge-content {
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .jorge-image {
+        order: 1;
+        text-align: left;
+    }
+
+    .jorge-info {
+        order: 2;
+        text-align: left;
+    }
+
+    .jorge-image img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .jorge-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .jorge-info p {
+        text-align: justify;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .jorge-quote {
+        text-align: left;
+        padding: 1.5rem;
+    }
+
+    .jorge-quote blockquote {
+        text-align: left;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+}
+
 /* VSL Section */
 .vsl-section {
     background-color: var(--bg-light);
@@ -1524,6 +1669,142 @@ section {
 .reason i {
     font-size: 2rem;
     color: var(--primary-color);
+}
+
+/* Brands Section */
+.brands-section {
+    background-color: var(--bg-light);
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.brands-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brands-description {
+    margin-bottom: 3rem;
+}
+
+.brands-text {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.brands-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.brand-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(156, 191, 40, 0.3);
+}
+
+.brand-logo img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: var(--transition);
+    filter: grayscale(0);
+    opacity: 0.95;
+}
+
+.brand-logo:hover img {
+    filter: grayscale(0);
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* Mobile-first responsive design for brands */
+@media (max-width: 768px) {
+    .brands-section {
+        padding: 4rem 0 2rem;
+    }
+
+    .brands-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .brand-logo {
+        height: 120px;
+        padding: 2rem;
+    }
+
+    .brands-text {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .brands-logos {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .brand-logo {
+        height: 100px;
+        padding: 1.5rem;
+    }
+
+    .brands-text {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Tablet responsive */
+@media (min-width: 769px) and (max-width: 992px) {
+    .brands-logos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .brand-logo {
+        height: 130px;
+        padding: 2.25rem;
+    }
+}
+
+/* Desktop spacing optimization */
+@media (min-width: 1200px) {
+    .brands-logos {
+        gap: 3rem;
+        padding: 0 3rem;
+    }
+
+    .brand-logo {
+        height: 150px;
+        padding: 3rem;
+    }
 }
 
 /* Footer */
