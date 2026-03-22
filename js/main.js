@@ -35,23 +35,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Back to Top Button
-const backToTopBtn = document.querySelector('.back-to-top');
+// WhatsApp Floating Button (Mobile Only)
+const whatsappFloatButton = document.querySelector('.whatsapp-float');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
+        whatsappFloatButton.classList.add('show');
     } else {
-        backToTopBtn.classList.remove('show');
+        whatsappFloatButton.classList.remove('show');
     }
-});
-
-backToTopBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
 });
 
 // Sticky Header
